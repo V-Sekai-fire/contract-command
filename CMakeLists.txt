@@ -14,3 +14,14 @@ add_library(weft_interactor STATIC src/cbor.c)
 add_library(weft::interactor ALIAS weft_interactor)
 target_include_directories(weft_interactor PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_compile_options(weft_interactor PRIVATE -Wall -Wextra)
+
+# Vendored into a service as a subtree, this file is included rather than run, so the proof
+# only builds when this repository is the top of the tree. A service's build is not the place
+# to compile somebody else's test.
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+  enable_testing()
+  add_executable(weft_interactor_roundtrip proof/roundtrip.c)
+  target_link_libraries(weft_interactor_roundtrip PRIVATE weft_interactor)
+  target_compile_options(weft_interactor_roundtrip PRIVATE -Wall -Wextra)
+  add_test(NAME roundtrip COMMAND weft_interactor_roundtrip)
+endif()
