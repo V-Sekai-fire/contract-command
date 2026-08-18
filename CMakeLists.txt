@@ -24,4 +24,12 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
   target_link_libraries(weft_interactor_roundtrip PRIVATE weft_interactor)
   target_compile_options(weft_interactor_roundtrip PRIVATE -Wall -Wextra)
   add_test(NAME roundtrip COMMAND weft_interactor_roundtrip)
+
+  # The term writer. It writes the three shapes a reply may take; proof/term.exs decodes them
+  # in a real virtual machine, because a C program agreeing with a C program says nothing about
+  # whether Elixir can read the result.
+  add_executable(weft_interactor_term proof/term.c)
+  target_link_libraries(weft_interactor_term PRIVATE weft_interactor)
+  target_compile_options(weft_interactor_term PRIVATE -Wall -Wextra)
+  add_test(NAME term COMMAND weft_interactor_term)
 endif()
