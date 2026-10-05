@@ -4,7 +4,7 @@ The interactor contract in C: a command in, reply bytes out, and nothing about h
 
 ## What it is for
 
-An interactor answers one command with no socket, poll loop or knowledge of its transport. A transport moves bytes to and from a wire without knowing what they mean, and a service composes a state, its interactors and its transports. This repository holds only the contract between them, the CBOR reply writer, and an Elixir decoder that turns a reply into a term a caller matches on. The library links nothing, so a transport dependency that creeps into it fails the build. Framing, dispatch and authority belong to the transport, the service and the relations, not here.
+An interactor answers one command with no socket, poll loop or knowledge of its transport. A transport moves bytes to and from a wire without knowing what they mean, and a service composes a state, its interactors and its transports. This repository holds only the contract between them, the CBOR reply writer, and an Elixir decoder that turns a reply into a term a caller matches on. The library links nothing; a transport dependency in it is a defect. Framing, dispatch and authority belong to the transport, the service and the relations, not here.
 
 ## Build and test
 
@@ -17,4 +17,4 @@ The proofs build only when this repository is the top of the tree, not when a se
 
 ## Licence
 
-Apache-2.0, as the SPDX headers state.
+Apache-2.0, as the SPDX headers of the C sources state.
