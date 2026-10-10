@@ -17,4 +17,4 @@ The proofs build only when this repository is the top of the tree, not when a se
 
 ## Licence
 
-Apache-2.0, as the SPDX headers of the C sources state.
+MIT. See [LICENSE](LICENSE).
