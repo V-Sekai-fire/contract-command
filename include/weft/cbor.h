@@ -52,7 +52,7 @@ void weft_cbor_kv_bool(weft_cbor_t *c, const char *k, int v);
 
 // ── An Elixir term ────────────────────────────────────────────────────────────
 //
-// RFD 0124 carries a reply as a term a BEAM caller matches on, in CBOR rather than in a second
+// RFD66606-0124 carries a reply as a term a BEAM caller matches on, in CBOR rather than in a second
 // encoding. The mapping is closed: an atom is tag 39, a tuple is an array, a map is a map, a
 // binary is a text string. A reply carries no lists, so an array is always a tuple.
 //

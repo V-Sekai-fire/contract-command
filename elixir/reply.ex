@@ -2,7 +2,7 @@ defmodule Weft.Reply do
   @moduledoc """
   Decodes an interactor's reply into the term a caller matches on.
 
-  RFD 0124 carries the reply in CBOR and states the mapping: tag 39 is an atom, an array is a
+  RFD66606-0124 carries the reply in CBOR and states the mapping: tag 39 is an atom, an array is a
   tuple, a map is a map, a text string is a binary. This module is the only place that mapping
   is written, which is the answer to the objection that CBOR needs an adapter -- it needs one,
   and there is one, rather than one per caller.

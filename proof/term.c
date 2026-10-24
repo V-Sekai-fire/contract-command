@@ -1,6 +1,6 @@
 // The three shapes a reply may take, written and then read by a real virtual machine.
 //
-// RFD 0124 carries a reply as an Elixir term in CBOR: an atom is tag 39, a tuple is an array,
+// RFD66606-0124 carries a reply as an Elixir term in CBOR: an atom is tag 39, a tuple is an array,
 // a map is a map, a binary is a text string. This writes one file per shape. `proof/term.exs`
 // decodes them through `elixir/reply.ex` and matches them the way a caller does, which is the
 // only check that establishes the claim -- a C program agreeing with a C program says nothing
